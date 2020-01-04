@@ -1,0 +1,4 @@
+com\wbl\App.class
+com\wbl\config\SecurityConfigurer.class
+com\wbl\config\service\MyUserDetailsService.class
+com\wbl\config\controller\UserController.class
