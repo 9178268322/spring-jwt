@@ -1,4 +1,14 @@
-com\wbl\App.class
+com\wbl\dao\UserDao.class
+com\wbl\service\AccountService.class
 com\wbl\config\SecurityConfigurer.class
-com\wbl\config\service\MyUserDetailsService.class
-com\wbl\config\controller\UserController.class
+com\wbl\models\AuthenticationResponse.class
+com\wbl\util\JwtUtil.class
+com\wbl\dao\AccountRepository.class
+com\wbl\controller\UserController.class
+com\wbl\controller\AccountController.class
+com\wbl\service\MyUserDetailsService.class
+com\wbl\models\UserInfo.class
+com\wbl\App.class
+com\wbl\models\Account.class
+com\wbl\filters\JwtRequestFilter.class
+com\wbl\models\AuthenticationRequest.class
