@@ -1,5 +1,7 @@
 package com.wbl.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -35,7 +37,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/adduser", method = RequestMethod.POST)
-	public UserInfo addUser(@RequestBody UserInfo user) {
+	public UserInfo addUser(@Valid @RequestBody UserInfo user) {
 		return myUserDetailsService.addUser(user);
 	}
 	

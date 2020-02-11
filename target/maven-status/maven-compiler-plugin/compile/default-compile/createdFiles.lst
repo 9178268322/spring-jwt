@@ -9,6 +9,9 @@ com\wbl\controller\AccountController.class
 com\wbl\service\MyUserDetailsService.class
 com\wbl\models\UserInfo.class
 com\wbl\App.class
+com\wbl\exception\ResourceNotFoundException.class
 com\wbl\models\Account.class
+com\wbl\exception\ErrorResponse.class
+com\wbl\exception\GlobalExceptionHandler.class
 com\wbl\filters\JwtRequestFilter.class
 com\wbl\models\AuthenticationRequest.class

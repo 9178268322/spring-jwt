@@ -8,6 +8,4 @@ import com.wbl.models.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
-	Account findByid(Long id);
-
 }
