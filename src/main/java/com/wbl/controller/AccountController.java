@@ -24,29 +24,29 @@ import com.wbl.models.Account;
 import com.wbl.service.AccountService;
 
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("${ac.baseurl}")
 public class AccountController {
 
 	@Autowired
 	private AccountService accountService;
 
-	@GetMapping("/accounts")
+	@GetMapping("${ac.accounts}")
 	public ResponseEntity<List<Account>> getAllAccounts() {
 		return new ResponseEntity<List<Account>>(accountService.getAllAccounts(), HttpStatus.OK);
 	}
 
-	@GetMapping("/accounts/{id}")
+	@GetMapping("${ac.account_by_id}")
 	public ResponseEntity<Account> getAccount(@PathVariable Long id) throws ResourceNotFoundException {
 		Account ac = accountService.getAccount(id).orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + id));
 		return ResponseEntity.ok().body(ac);
 	}
 
-	@PostMapping("/accounts")
+	@PostMapping("${ac.create_account}")
 	public ResponseEntity<Account> addAccount(@Valid @RequestBody Account ac) {
 		return new ResponseEntity<Account>(accountService.addAccount(ac), HttpStatus.CREATED);
 	}
 
-	@PutMapping("/accounts/{id}")
+	@PutMapping("${ac.update_account}")
 	public ResponseEntity<Account> updateAccount(@Valid @RequestBody Account acDetails, @PathVariable Long id) throws ResourceNotFoundException {
 		Account ac = accountService.getAccount(id).orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + id));
 		
@@ -59,7 +59,7 @@ public class AccountController {
 		return ResponseEntity.ok(updatedAccount);
 	}
 
-	@DeleteMapping("/accounts/{id}")
+	@DeleteMapping("${ac.delete_account}")
 	public Map<String, Boolean> deleteAccount(@PathVariable Long id) throws ResourceNotFoundException {
 		Account ac = accountService.getAccount(id).orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + id));
 		accountService.deleteAccount(ac);

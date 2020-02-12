@@ -31,17 +31,17 @@ public class UserController {
 	@Autowired
 	private JwtUtil jwtUtil;
 	
-	@RequestMapping({"/hello"})
+	@RequestMapping({"${test.url}"})
 	public String hello() {
 		return "Hello World !!";
 	}
 	
-	@RequestMapping(value = "/adduser", method = RequestMethod.POST)
+	@RequestMapping(value = "${u.add_user}", method = RequestMethod.POST)
 	public UserInfo addUser(@Valid @RequestBody UserInfo user) {
 		return myUserDetailsService.addUser(user);
 	}
 	
-	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+	@RequestMapping(value = "${u.authenticate_user}", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
 		try {
 		authenticationManager.authenticate(
