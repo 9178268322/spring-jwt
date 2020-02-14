@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -36,12 +38,18 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@NotEmpty(message = "Account may not be empty")
+    @NotBlank(message = "Account may not be blank")
 	@Column(name = "acc_type", nullable = false)
 	private String accType;
 
+	@NotEmpty(message = "Balance may not be empty")
+    @NotBlank(message = "Balance may not be blank")
 	@Column(name = "balance", nullable = false)
 	private double balance;
 
+	@NotEmpty(message = "AccName may not be empty")
+    @NotBlank(message = "AccName may not be blank")
 	@Column(name = "acc_name", nullable = false)
 	private String accName;
 

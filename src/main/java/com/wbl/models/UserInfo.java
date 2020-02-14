@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -23,9 +25,13 @@ public class UserInfo {
 	@GeneratedValue
 	private Integer id;
 	
+	@NotEmpty(message = "Username may not be empty")
+    @NotBlank(message = "Username may not be blank")
 	@Column(name = "user_name", nullable = false)
 	private String username;
 	
+	@NotEmpty(message = "Password may not be empty")
+    @NotBlank(message = "Password may not be blank")
 	@Column(name = "pass_word", nullable = false)
 	private String password;
 	
