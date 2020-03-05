@@ -1,0 +1,41 @@
+# Server port no.
+server:
+  port: ${port}
+  
+# Database Propertiesspring:  datasource:    driver-class-name:  com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hibernate?serverTimezone=UTC
+    username: root
+    password: root
+    
+  jpa:
+    # Hibernate ddl auto (create, create-drop, validate, update)    hibernate:      ddl-auto: update
+    # To see the sql queries on console
+    show-sql: true
+    
+# secret key
+skey: secret
+
+# userinfo. url
+test:
+    url: /hello
+u:
+ add_user: /adduser
+ authenticate_user: /authenticate
+
+# API url info
+ac:
+  baseurl: /api/v1
+  accounts: /accounts
+  account_by_id: /accounts/{id}
+  create_account: /accounts
+  update_account: /accounts/{id}
+  delete_account: /accounts/{id}
+ 
+#logging:#  file: E:/New folder/spring-security-jwt/my-logs/application.log
+#logging.path=/my-logs/
+#
+#  level:
+#     org: 
+#        springframework:
+#            web: DEBUG
+#        hibernate: ERROR
