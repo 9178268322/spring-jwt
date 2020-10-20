@@ -1,11 +1,12 @@
 # Server port no.
 server:
-  port: ${port}
+  port: 5000
   
 # Database Propertiesspring:  datasource:    driver-class-name:  com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hibernate?serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/accountdb
     username: root
     password: root
+  
     
   jpa:
     # Hibernate ddl auto (create, create-drop, validate, update)    hibernate:      ddl-auto: update

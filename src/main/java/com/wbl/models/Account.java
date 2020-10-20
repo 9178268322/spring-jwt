@@ -13,6 +13,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -38,19 +40,17 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@NotEmpty(message = "Account may not be empty")
-    @NotBlank(message = "Account may not be blank")
-	@Column(name = "acc_type", nullable = false)
+	@NotNull(message = "Account type can't be null")
+	@Size(min = 2, message = "Account type must not be less than 2 characters")
+	@Column(name = "acc_type")
 	private String accType;
 
-	@NotEmpty(message = "Balance may not be empty")
-    @NotBlank(message = "Balance may not be blank")
-	@Column(name = "balance", nullable = false)
+	@Column(name = "balance")
 	private double balance;
 
-	@NotEmpty(message = "AccName may not be empty")
-    @NotBlank(message = "AccName may not be blank")
-	@Column(name = "acc_name", nullable = false)
+	@NotNull(message = "Account name can't be null")
+	@Size(min = 2, message = "Account name must not be less than 2 characters")
+	@Column(name = "acc_name")
 	private String accName;
 
 	@CreationTimestamp
@@ -58,7 +58,9 @@ public class Account {
 	@Column(name = "created_at", nullable = false)
 	private Date createdAt;
 
-	@Column(name = "created_by", nullable = false)
+	@NotNull(message = "Created by can't be null")
+	@Size(min = 2, message = "Created by must not be less than 2 characters")
+	@Column(name = "created_by")
 	@CreatedBy
 	private String createdBy;
 
@@ -67,7 +69,9 @@ public class Account {
 	@Column(name = "updated_at", nullable = false)
 	private Date updatedAt;
 
-	@Column(name = "updated_by", nullable = false)
+	@NotNull(message = "Updated by can't be null")
+	@Size(min = 2, message = "Updated by must not be less than 2 characters")
+	@Column(name = "updated_by")
 	@LastModifiedBy
 	private String updatedBy;
 }
