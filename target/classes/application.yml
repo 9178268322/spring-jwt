@@ -5,7 +5,7 @@ server:
 # Database Propertiesspring:  datasource:    driver-class-name:  com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/accountdb
     username: root
-    password: root
+    password: neena
   
     
   jpa:
